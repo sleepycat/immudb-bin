@@ -11,4 +11,12 @@ tasks:
     desc: build the package
     cmds:
       - makepkg
-      - makepkg --printsourceinfo > .SRCINFO
+      - makepkg --printsrcinfo > .SRCINFO
+  clean:
+    desc: Clean up build folders.
+    cmds:
+      - rm -rf ./src ./pkg
+      - rm -f *.log*
+      - rm -f *.zst
+      - rm -rf data
+      - rm -f immudb.service
