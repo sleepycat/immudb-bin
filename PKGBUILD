@@ -32,7 +32,6 @@ package() {
   # create systemd service with correct link to documentation
   mkdir -p $pkgdir/usr/lib/systemd/system
   sed -i "s/@@PKGVER@@/$pkgver/" systemd.service > $pkgdir/usr/lib/systemd/system/immudb.service
-  echo "doing binaries"
 
   # add execute permission so we can use the binaries to generate completions
   for bin in immudb immuclient immuadmin; do
@@ -41,38 +40,30 @@ package() {
 
   # Generate bash completion
   for bin in immudb immuclient immuadmin; do
-    echo "generating bash completion"
     mkdir -p "$pkgdir/usr/share/bash-completion/completions"
     "./$bin-v$pkgver-linux-amd64" completion bash > "$pkgdir/usr/share/bash-completion/completions/$bin"
-    echo "finished bash"
   done
 
   for bin in immudb immuclient immuadmin; do
-    echo "generating fish completion"
     mkdir -p "$pkgdir/usr/share/fish/vendor_completions.d"
     "./$bin-v$pkgver-linux-amd64" completion fish > "$pkgdir/usr/share/fish/vendor_completions.d/$bin.fish"
-    echo "finished fish"
   done
 
   for bin in immudb immuclient immuadmin; do
-    echo "generating zsh completion"
     mkdir -p "$pkgdir/usr/share/zsh/site-functions"
     "./$bin-v$pkgver-linux-amd64" completion zsh > "$pkgdir/usr/share/zsh/site-functions/_$bin"
-    echo "finished zsh"
   done
 
-  echo "done completions."
-  echo "moving binaries"
   for bin in immudb immuclient immuadmin; do
     mv "$bin-v$pkgver-linux-amd64" $bin
-    install -vDm755 "$bin" "$pkgdir/usr/bin/$bin"
+    install -Dm755 "$bin" "$pkgdir/usr/bin/$bin"
   done
 
   # systemd integration
-  install -vDm644 systemd.service "$pkgdir/usr/lib/systemd/system/$pkgname.service"
-  install -vDm644 sysusers.conf "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
-  install -vDm644 tmpfiles.conf "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+  install -Dm644 systemd.service "$pkgdir/usr/lib/systemd/system/$pkgname.service"
+  install -Dm644 sysusers.conf "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
+  install -Dm644 tmpfiles.conf "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
 
   # configuration
-  install -vDm644 config.toml "$pkgdir/etc/$pkgname/$pkgname.toml"
+  install -Dm644 config.toml "$pkgdir/etc/$pkgname/$pkgname.toml"
 }
