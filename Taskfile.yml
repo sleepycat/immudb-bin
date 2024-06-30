@@ -1,0 +1,14 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  update:
+    desc: Update the shasums of the package contents
+    cmds:
+      - updpkgsums
+  build:
+    desc: build the package
+    cmds:
+      - makepkg
+      - makepkg --printsourceinfo > .SRCINFO
