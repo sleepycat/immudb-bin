@@ -10,6 +10,7 @@ url='https://codenotary.com/technologies/immudb/'
 # https://github.com/codenotary/immudb/blob/master/LICENSE :(
 license=('BUSL-1.1')
 backup=('etc/immudb/immudb.toml')
+install=immudb.install
 source=(
   "https://github.com/codenotary/immudb/releases/download/v$pkgver/immudb-v$pkgver-linux-amd64"
   "https://github.com/codenotary/immudb/releases/download/v$pkgver/immuadmin-v$pkgver-linux-amd64"

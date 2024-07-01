@@ -1,0 +1,38 @@
+post_install() {
+
+  cat <<-EOF
+
+  Welcome to Immudb.
+
+  To get started you will need to enable and start the service:
+
+   sudo systemctl enable immudb.service
+   sudo systemctl start immudb.service
+
+  Immudb ships with authentication enabled and a default username/password.
+  You will be warned to change that when accessing the administrative interface at:
+
+    http://localhost:8080
+
+  Getting help:
+    https://stackoverflow.com/questions/tagged/immudb
+    https://discord.com/invite/EWeCbkjZVu
+    https://docs.immudb.io
+
+EOF
+}
+
+pre_remove() {
+  systemctl stop immudb.service &> /dev/null
+}
+
+post_remove() {
+  cat <<-EOF
+
+  Immudb has been uninstalled.
+
+  Any data you had stored in Immudb is still available in /var/lib/immudb.
+  Log files are left in /var/log/immudb.
+
+EOF
+}
