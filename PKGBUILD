@@ -6,7 +6,7 @@ pkgver=1.9.3
 pkgrel=1
 pkgdesc='Immutable database built on a zero-trust model'
 arch=('x86_64')
-url='https://codenotary.com/technologies/immudb/'
+url='https://immudb.io'
 # https://github.com/codenotary/immudb/blob/master/LICENSE :(
 license=('BUSL-1.1')
 backup=('etc/immudb/immudb.toml')
