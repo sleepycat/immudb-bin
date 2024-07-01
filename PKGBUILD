@@ -55,6 +55,12 @@ package() {
   done
 
   for bin in immudb immuclient immuadmin; do
+    mkdir -p "$pkgdir/usr/share/man/man1"
+    # use the hidden mangen command to generate man files:
+    "./$bin-v$pkgver-linux-amd64" mangen "$pkgdir/usr/share/man/man1"
+  done
+
+  for bin in immudb immuclient immuadmin; do
     mv "$bin-v$pkgver-linux-amd64" $bin
     install -Dm755 "$bin" "$pkgdir/usr/bin/$bin"
   done
