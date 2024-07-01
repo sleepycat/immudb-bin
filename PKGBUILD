@@ -1,7 +1,7 @@
 # Maintainer: Mike Williamson <mike@korora.ca>
 # much inspiration from George Rawlinson <grawlinson@archlinux.org>
 
-pkgname=immudb
+pkgname=immudb-bin
 pkgver=1.9.3
 pkgrel=1
 pkgdesc='Immutable database built on a zero-trust model'
@@ -11,6 +11,8 @@ url='https://immudb.io'
 license=('BUSL-1.1')
 backup=('etc/immudb/immudb.toml')
 install=immudb.install
+provides=("immudb=$pkgver")
+conflicts=("immudb")
 source=(
   "https://github.com/codenotary/immudb/releases/download/v$pkgver/immudb-v$pkgver-linux-amd64"
   "https://github.com/codenotary/immudb/releases/download/v$pkgver/immuadmin-v$pkgver-linux-amd64"
