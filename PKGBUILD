@@ -20,7 +20,7 @@ source=(
   'systemd.service'
   'sysusers.conf'
   'tmpfiles.conf'
-  'config.toml'
+  'immudb.toml'
 )
 sha256sums=('8512e1d3e042e88081b66a5feca26dc0d70cc57ae807e626349e3886c16016be'
             '8d0d58183f7f1f3051cd425438b81603a118da83bd6485cbea550d252726a708'
@@ -69,10 +69,10 @@ package() {
   done
 
   # systemd integration
-  install -Dm644 systemd.service "$pkgdir/usr/lib/systemd/system/$pkgname.service"
-  install -Dm644 sysusers.conf "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
-  install -Dm644 tmpfiles.conf "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+  install -Dm644 systemd.service "$pkgdir/usr/lib/systemd/system/immudb.service"
+  install -Dm644 sysusers.conf "$pkgdir/usr/lib/sysusers.d/immudb.conf"
+  install -Dm644 tmpfiles.conf "$pkgdir/usr/lib/tmpfiles.d/immudb.conf"
 
   # configuration
-  install -Dm644 config.toml "$pkgdir/etc/$pkgname/$pkgname.toml"
+  install -Dm644 immudb.toml "$pkgdir/etc/immudb/immudb.toml"
 }
