@@ -2,7 +2,7 @@
 # much inspiration from George Rawlinson <grawlinson@archlinux.org>
 
 pkgname=immudb-bin
-pkgver=1.9.5
+pkgver=1.9.6
 pkgrel=1
 pkgdesc='Immutable database built on a zero-trust model'
 arch=('x86_64')
@@ -22,9 +22,9 @@ source=(
   'tmpfiles.conf'
   'immudb.toml'
 )
-sha256sums=('9e79a23676c4841fc4c324ae2577c777c91020647b01458ef9897154027d2922'
-            '33af8a8f4add8ec21246bb7fa3b9abf32fe8520a2254a317e848dd759298f6cb'
-            'f64e7a64c6d3ddc9ed42395b3edaed5956eb48bd689d6df120d351396a5f6e90'
+sha256sums=('26a26b68c02a86b3464e669710bd77fb06ccdbbaca03f481c4706c3526c2c5f8'
+            'f8aa9d07342236a46eff49677d6b5dea11710ba7996a494b64fd3ce1a0e36b39'
+            '16e0d8e67253f253dc3ae1220f4aee84b3634eaa5c018e2b0729df0b03d4c11b'
             'e288ecbffb4cdac7bf713e2e2bb29094756f72c2194bd0741095b280d534a2d5'
             '42b18385820aefb0967229def5535172e635cbf26569bd2e36f3bc0af8e7402e'
             'bc98faaa41be644024856893d66a50bafb9a867d055437341ffecd77d5d5c1c3'
